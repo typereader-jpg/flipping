@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Flipping</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="game">
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-item"><span class="hud-label">Score</span><span id="score">0</span></div>
+      <div class="hud-item"><span class="hud-label">Best</span><span id="best">0</span></div>
+      <div class="hud-item"><span class="hud-label">Tokens</span><span id="tokens">0 🪙</span></div>
+    </div>
+
+    <!-- Play area -->
+    <div class="stage">
+      <div class="pizza-wrap">
+        <div id="pizza" class="pizza">🍕</div>
+        <div class="particle-layer" id="particle-layer"></div>
+      </div>
+
+      <div class="toast" id="bonus-toast"></div>
+
+      <div class="track" id="track">
+        <div class="zone" id="zone"></div>
+        <div class="marker" id="marker">🔥</div>
+      </div>
+
+      <p class="hint">Tap anywhere when the 🔥 hits the zone</p>
+    </div>
+
+    <!-- Tap catcher -->
+    <div id="tap-area"></div>
+
+    <!-- Start screen -->
+    <div class="overlay" id="start-screen">
+      <div class="overlay-card">
+        <div class="big-emoji">🍕</div>
+        <h1>Flipping</h1>
+        <p class="overlay-text">
+          Tap the second the flame lines up with the glowing zone.
+          Every hit makes it faster. One miss and it's over.
+        </p>
+        <button class="primary-btn" id="start-btn">Start Flipping 🚀</button>
+        <div class="btn-row">
+          <button class="secondary-btn" id="leaderboard-btn-start">🏆 Leaderboard</button>
+          <button class="secondary-btn" id="menu-btn-start">🍕 Menu</button>
+        </div>
+        <p class="lifetime-stats" id="lifetime-stats"></p>
+      </div>
+    </div>
+
+    <!-- Revive offer (shown on miss, before final game over, if the player can afford it) -->
+    <div class="overlay hidden" id="revive-screen">
+      <div class="overlay-card">
+        <div class="big-emoji">💥</div>
+        <h1>Oof!</h1>
+        <p class="final-score">You flipped it <strong id="revive-score">0</strong> times</p>
+        <button class="primary-btn" id="revive-btn">Revive for <span id="revive-cost">3</span> 🪙</button>
+        <button class="secondary-btn" id="end-run-btn">No thanks, end run</button>
+      </div>
+    </div>
+
+    <!-- Game over screen -->
+    <div class="overlay hidden" id="gameover-screen">
+      <div class="overlay-card">
+        <div class="big-emoji">🍕</div>
+        <h1>Dropped it!</h1>
+        <p class="final-score">You flipped it <strong id="final-score">0</strong> times</p>
+        <p class="best-badge" id="new-best-badge">🎉 New Best! +<span id="reward-amount">5</span> 🪙</p>
+        <button class="primary-btn" id="retry-btn">Flip Again 🔁</button>
+        <div class="btn-row">
+          <button class="secondary-btn" id="leaderboard-btn-gameover">🏆 Leaderboard</button>
+          <button class="secondary-btn" id="menu-btn-gameover">🍕 Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="overlay hidden" id="leaderboard-screen">
+      <div class="overlay-card lb-card">
+        <button class="modal-close" id="leaderboard-close">&times;</button>
+        <div class="big-emoji">🏆</div>
+        <h1>Top Flippers</h1>
+        <div id="leaderboard-body" class="lb-body"></div>
+        <p class="lb-footer" id="my-rank-line"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="flipping.js"></script>
+</body>
+</html>

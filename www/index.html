@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Pizza Arcade</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="menu.css" />
+</head>
+<body>
+  <div id="menu">
+
+    <header class="menu-head">
+      <div class="menu-title">🍕 Pizza Arcade</div>
+      <button class="tokens-pill" id="menu-skins-btn"><span id="menu-tokens">0 🪙</span></button>
+    </header>
+
+    <div class="game-list">
+      <button class="game-card" id="card-flipping">
+        <div class="game-card-emoji">🔥</div>
+        <div class="game-card-body">
+          <div class="game-card-name">Flipping</div>
+          <div class="game-card-tagline">Tap the flame in the zone. One miss ends it.</div>
+          <div class="game-card-best" id="flipping-best-line">Best: 0</div>
+        </div>
+        <div class="game-card-arrow">›</div>
+      </button>
+    </div>
+
+    <p class="menu-footer">Tap the token count anytime to spend them on pizza skins.</p>
+  </div>
+
+  <!-- Skins -->
+  <div class="overlay hidden" id="skins-screen">
+    <div class="overlay-card lb-card">
+      <button class="modal-close" id="skins-close">&times;</button>
+      <div class="big-emoji">🎨</div>
+      <h1>Pizza Skins</h1>
+      <p class="overlay-text">Spend tokens to unlock a new look for Flipping's pizza. Purely cosmetic — same great flip.</p>
+      <div id="skins-body" class="skins-body"></div>
+    </div>
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>
